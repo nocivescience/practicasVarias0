@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+    .contenedor{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    }
+    .barra{
+        width: 4px;
+        height: 40px;
+        background-color: #000;
+        grid-column: 4;
+        grid-row: 5;
+        
+    }
+</style>
+<body>
+    <div class="contenedor"></div>
+    <script>
+        const contenedor = document.querySelector('.contenedor');
+        function crearBarra(){
+            const barra = document.createElement('div');
+            barra.className = 'barra';
+            contenedor.appendChild(barra);
+        }
+        crearBarra();
+        function efecto(timestamp){
+            const barra = document.querySelector('.barra');
+            barra.style.transformOrigin = 'bottom';
+            barra.style.transform = `scaleY(${(timestamp/100)%10})`;
+            window.requestAnimationFrame(efecto);
+        }
+        window.requestAnimationFrame(efecto);
+    </script>
+</body>
+</html>
