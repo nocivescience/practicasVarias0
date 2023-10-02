@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: #008cff;
+        margin: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #barra{
+        width: 400px;
+        height: 50px;
+        background-color: #ff0000;
+        position: relative;
+        top: -20%;
+    }
+    .subcontainer{
+        width: 100%;
+        height: 100%;
+        background-color: #00ff00;
+        position: relative;
+    }
+</style>
+<body>
+    <div class="container" id="container">
+        <div class="entrada"></div>
+        <div class="subcontainer"></div>
+        <div id="barra"></div>
+    </div>
+    <script>
+        const container = document.querySelector('#container');
+        const entrada = document.querySelector('.entrada');
+        const barra = document.querySelector('#barra');
+        const subcontainer = document.querySelector('.subcontainer');
+        let deltaX, deltaY;
+        barra.addEventListener('mousemove', ()=>{
+            deltaX = event.offsetX;
+            deltaY = event.offsetX;
+            entrada.innerHTML = `deltaX: ${deltaX} \n deltaY: ${deltaY}`;
+            const subbarra = document.createElement('div');
+            const subbarra2 = document.createElement('div');
+            subcontainer.innerHTML = '';
+            subbarra.style.cssText = `
+                width: ${deltaX*2}px;
+                height: 20px;
+                position: absolute;
+                background-color: #000;
+                top: 50%;
+            `;
+            subbarra2.style.cssText = `
+                width: 20px;
+                height: ${deltaY*1.5}px;
+                position: absolute;
+                background-color: #000;
+                top: 4%;
+                right: 5%;
+            `;
+            subcontainer.appendChild(subbarra);
+            subcontainer.appendChild(subbarra2);
+        })
+    </script>
+</body>
+</html>

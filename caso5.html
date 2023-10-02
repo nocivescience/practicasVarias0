@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: #008cff;
+        margin: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+</style>
+<body>
+    <div class="container"></div>
+    <script>
+        const container= document.querySelector('.container');
+        function createSquare(x,y){
+            container.innerHTML = '';
+            const square = document.createElement('div');
+            square.style.width = '50px';
+            square.style.height = '50px';
+            square.style.backgroundColor = '#ff0000';
+            square.style.position = 'absolute';
+            square.style.top = `${y}px`;
+            square.style.left = `${x}px`;
+            container.appendChild(square);
+        }
+        document.addEventListener('mousemove', function(e){
+            createSquare(e.clientX, e.clientY);
+        });
+        document.addEventListener('click', function(e){
+            createSquare(0, 0);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: #008cff;
+        margin: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    .ball{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #ff0000;
+        position: absolute;
+    }
+</style>
+<body>
+    <div class="container" id="container"></div>
+    <script>
+        const container = document.querySelector('#container');
+        let ballData = {
+            x: 0,
+            y: 0,
+            dx: 0,
+            dy: 0
+        }
+        let gameInProgress;
+        document.addEventListener('click', function(e){
+            if(!gameInProgress){
+                gameInProgress = true;
+                ballData.x = e.clientX;
+                ballData.y = e.clientY;
+                ballData.dx = 0;
+                ballData.dy = 0;
+                createElment();
+            }
+        });
+        document.addEventListener('mousemove', function(e){
+            if(gameInProgress){
+                ballData.dx = e.clientX - ballData.x;
+                ballData.dy = e.clientY - ballData.y;
+            }
+        });
+        function createElment(timestamp){
+            container.innerHTML = '';
+            ballData.x = Math.floor(Math.random() * 1000);
+            let ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.style.cssText = `top: ${ballData.y}px; left: ${ballData.x}px;`;
+            container.appendChild(ball);
+            setTimeout(function(){
+                gameInProgress = false;
+            }, 1000);
+            window.requestAnimationFrame(createElment);
+        }
+    </script>
+</body>
+</html>

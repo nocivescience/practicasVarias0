@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;  
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: #fcebaf; 
+    }
+    .barra{
+        width: 5px;
+        height: 10px;
+        background-color: #000;
+    }
+    button{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<body>
+    <div class="container" id="container">
+        <div class="entrada"></div>
+        <button>Enviar</button>
+    </div>
+    <script>
+        let previousTimestamp = 0;
+        let passedTime = false;
+        const container = document.querySelector('#container');
+        const btn = document.querySelector('button');
+        const entrada= document.querySelector('.entrada');
+        btn.addEventListener('click', function(e){
+            passedTime = true;
+        });
+        container.addEventListener('click', function(){
+            entrada.innerHTML = '';
+        });
+        function visorConteo(timestamp){
+            entrada.innerHTML = '';
+            const barra = document.createElement('div');
+            barra.className = 'barra';
+            if(passedTime){
+                previousTimestamp = timestamp;
+                passedTime = false;
+                setTimeout(function(){
+                }, 1000);
+            }
+            barra.innerText = `timestamp: ${timestamp} \n previousTimestamp: ${previousTimestamp} \n passedTime: ${passedTime}`; 
+            entrada.appendChild(barra);
+            window.requestAnimationFrame(visorConteo);
+        }
+        window.requestAnimationFrame(visorConteo);
+    </script>
+</body>
+</html>
