@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: #008cff;
+        margin: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+</style>
+<body>
+    <div class="container" id="container"></div>
+    <script>
+        let ballData = {
+            x: 1,
+            y: 1,
+            dx: 1,
+            dy: 1
+        }
+        let accelerationX = 10;
+        let accelerationY = 10;
+        let previousTimestamp;
+        let ball;
+        const container = document.querySelector('#container');
+        const createBall=()=>{
+            container.innerHTML = '';
+            ball = document.createElement('div');
+            ball.style.width = '50px';
+            ball.style.height = '50px';
+            ball.style.borderRadius = '50%';
+            ball.style.backgroundColor = 'red';
+            ball.style.position = 'absolute';
+            container.appendChild(ball);
+            return ball;
+        }
+        function main(timestamp){
+            if(!previousTimestamp){
+                previousTimestamp = timestamp;
+            }
+            createBall();
+            let accelerationDeltaX= accelerationX * (timestamp - previousTimestamp) / 1000;
+            let accelerationDeltaY= accelerationY * (timestamp - previousTimestamp) / 1000;
+            ballData.dx += accelerationDeltaX;
+            ballData.dy += accelerationDeltaY;
+            ballData.x += ballData.dx;
+            ballData.y += ballData.dy;
+            ball.style.left = `${ballData.x}px`;
+            ball.style.top = `${ballData.y}px`;
+            console.log(accelerationDeltaX);
+            console.log(accelerationDeltaY);
+            window.requestAnimationFrame(main);
+        }
+        main();
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: #008cff;
+        margin: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .joystick{
+        width: 100px;
+        height: 100px;
+        background-color: #ff0000;
+        border-radius: 50%;
+        position: relative;
+    }
+    .joystickHead{
+        width: 50px;
+        height: 50px;
+        background-color: #000000;
+        border-radius: 50%;
+    }
+    .cajas{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+    .caja{
+        width: 100px;
+        height: 100px;
+    }
+    .caja:nth-child(1){
+        background-color: #00ff15;
+    }
+    .caja:nth-child(2){
+        background-color: #ff0000;
+    }
+</style>
+<body>
+    <div class="container" id="container">
+        <div class="joystick"></div>
+        <div class="cajas">
+            <div class="caja"></div>
+            <div class="caja"></div>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('#container');
+        const joystick = document.querySelector('.joystick');
+        const caja= Array.from(document.querySelectorAll('.caja'));
+        let gameInProgress;
+        caja[0].addEventListener('click',()=>{
+            gameInProgress = true;
+        })
+        caja[1].addEventListener('click',()=>{
+            gameInProgress = false;
+        })
+        function joystickHead(x=undefined,y=undefined){
+            const joystickHead = document.createElement('div');
+            joystickHead.classList.add('joystickHead');
+            joystickHead.style.position = 'absolute'; 
+            joystickHead.style.margin = '25px';  
+            joystick.appendChild(joystickHead);
+        }
+        joystickHead();
+        function main(timestamp){
+            if(gameInProgress){
+                console.log('it is working');
+            }else{
+                console.log('it is not working');
+            }
+            requestAnimationFrame(main);
+        }
+        main();
+    </script>
+</body>
+</html>

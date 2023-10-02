@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .container1{
+        width: 100vw;
+        height: 100vh;
+        background-color: #008cff;
+        margin: 0;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .container21{
+        width: 50%;
+        height: 50%;
+        background-color: #ff0000;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .container22{
+        width: 50%;
+        height: 50%;
+        background-color: #00ff15;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .container31{
+        width: 50%;
+        height: 50%;
+        background-color: #ff00f7;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .container32{
+        width: 50%;
+        height: 50%;
+        background-color: #fffc00;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .container33{
+        width: 50%;
+        height: 50%;
+        background-color: #b300ff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .container34{
+        width: 50%;
+        height: 50%;
+        background-color: #ff7b00;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .container41{
+        width: 50%;
+        height: 50%;
+        background-color: #00a40e;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .container42{
+        width: 50%;
+        height: 50%;
+        background-color: #ff3535;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .container43{
+        width: 50%;
+        height: 50%;
+        background-color: #fa42f4;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .container44{
+        width: 50%;
+        height: 50%;
+        background-color: #b1af00;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .container45{
+        width: 50%;
+        height: 50%;
+        background-color: #0c4dff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .container46{
+        width: 50%;
+        height: 50%;
+        background-color: #029e5d;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+    .container47{
+        width: 50%;
+        height: 50%;
+        background-color: #dda601;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .container48{
+        width: 50%;
+        height: 50%;
+        background-color: #8011ff;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+</style>
+<body>
+    <div class="container1" id="container1">
+        <div class="container21" id="container21">
+            <div class="container31" id="container31">
+                <div class="container41" id="container41"></div>
+                <div class="container42" id="container42"></div>
+            </div>
+            <div class="container32" id="container32">
+                <div class="container43" id="container43"></div>
+                <div class="container44" id="container44"></div>
+            </div>
+        </div>
+        <div class="container22" id="container22">
+            <div class="container33" id="container33">
+                <div class="container45" id="container45"></div>
+                <div class="container46" id="container46"></div>
+            </div>
+            <div class="container34" id="container34">
+                <div class="container47" id="container47"></div>
+                <div class="container48" itemref="container48"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let container1 = document.getElementById('container1');
+        let container21 = document.getElementById('container21');
+        let container22 = document.getElementById('container22');
+        let container31 = document.getElementById('container31');
+        let container32 = document.getElementById('container32');
+        let container33 = document.getElementById('container33');
+        let container34 = document.getElementById('container34');
+        let container41 = document.getElementById('container41');
+        let container42 = document.getElementById('container42');
+        let container43 = document.getElementById('container43');
+        let container44 = document.getElementById('container44');
+        let container45 = document.getElementById('container45');
+        let container46 = document.getElementById('container46');
+        let container47 = document.getElementById('container47');
+        let container48 = document.getElementById('container48');
+        let container1Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container21Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container22Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container31Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container32Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container33Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container34Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container41Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container42Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container43Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container44Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container45Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container46Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container47Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container48Data = {
+            x: 0,
+            y: 0,
+            dx: 1,
+            dy: 1
+        }
+        let container1proof, container21proof, container22proof, container31proof, container32proof, container33proof, container34proof, container41proof, container42proof, container43proof, container44proof, container45proof, container46proof, container47proof, container48proof;
+        container1.addEventListener('click', (e)=>{
+            container1proof = true;
+            console.log(container1proof);
+            prueba2();
+        })
+        container1.addEventListener('mouseleave', (e)=>{
+            container1proof = false;
+            console.log(container1proof);
+            prueba2();
+        })
+        function prueba2(){
+            if(container1proof){
+                container21.style.backgroundColor = 'white';
+                container21proof = true;
+                prueba3();
+            }else if(container1proof === false){
+                container21.style.backgroundColor = 'black';
+                container21proof = false;
+                prueba3();
+            }
+        }
+        function prueba3(){
+            if(container21proof){
+                container22.style.backgroundColor = '#ffc3c3';
+                container22proof = true;
+                prueba4();
+            }else if(container21proof === false){
+                container22.style.backgroundColor = '#513c3c';
+                container22proof = false;
+                prueba4();
+            }
+        }
+        function prueba4(){
+            if(container22proof){
+                container31.style.backgroundColor = 'rgb(63, 182, 255)';
+                container31proof = true;
+            }else if(container22proof === false){
+                container31.style.backgroundColor = 'rgb(49, 71, 48)';
+                container31proof = false;
+            }
+        }            
+    </script>
+</body>
+</html>
